@@ -21,8 +21,8 @@ $m = query("SELECT * FROM mahasiswa WHERE id = $id");
         <li>NAMA : <?= $m['NAMA']; ?></li>
         <li>EMAIL : <?= $m['EMAIL']; ?></li>
         <li>JURUSAN :<?= $m['JURUSAN']; ?></li>
-        <li><a href="">Ubah</a> | <a href="">Hapus</a></li>
-        <li><a href="latihan3.php">Kembali ke daftar mahasiswa</a></li>
+        <li><a href="ubah.php?id=<?= $m['id']; ?>">Ubah</a> | <a href="hapus.php?id=<?= $m['id']; ?>">Hapus</a></li>
+        <li><a href="index.php">Kembali ke daftar mahasiswa</a></li>
     </ul>
 </body>
 </html>
