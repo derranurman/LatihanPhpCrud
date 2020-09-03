@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['login'])){
+    header("Location: login.php");
+    exit;
+}
 require 'functions.php';
 $mahasiswa = query("SELECT * FROM mahasiswa");
 
@@ -16,14 +22,17 @@ if(isset($_POST['cari'])) {
     <title>Daftar mahasiswa</title>
 </head>
 <body>
+    <a href="logout.php">Logout!!!</a>
     <h3>Daftar Mahasiswa</h3>
     <a href="tambah.php">Tambah Data Mahasiswa</a>
     <br><br>
     <form action="" method="POST">
-       <input type="text" name="keyword" size="40" placeholder="masukan pencarian !!!" autocomplete="off" autofocus>
-       <button type="submit" name="cari">cari!!</button> 
+       <input type="text" name="keyword" size="40" placeholder="masukan pencarian !!!" autocomplete="off" autofocus class="keyword">
+       <button type="submit" name="cari" class="tombol-cari">cari!!</button> 
     </form>
     <br>
+
+    <div class="container">
     <table border="1" cellpadding="10" cellspacing="0" class="table table-hover table-dark">
    <tr>
    <th>#</th>
@@ -51,5 +60,8 @@ if(isset($_POST['cari'])) {
    </tr>
    <?php endforeach; ?>
     </table>
+
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
